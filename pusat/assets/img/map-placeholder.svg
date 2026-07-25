@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eaf1fb"/>
+      <stop offset="1" stop-color="#d7e6fb"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="400" fill="url(#bg)"/>
+  <!-- Sumatera -->
+  <path d="M120 90 L170 70 L200 120 L190 220 L150 300 L110 260 L100 150 Z" fill="#9fb8dd" opacity="0.9"/>
+  <!-- Jawa -->
+  <path d="M170 280 L340 300 L350 320 L180 320 Z" fill="#8aa8d6" opacity="0.9"/>
+  <!-- Kalimantan -->
+  <path d="M280 90 L420 80 L440 180 L360 230 L280 190 Z" fill="#9fb8dd" opacity="0.9"/>
+  <!-- Sulawesi -->
+  <path d="M470 110 L520 100 L540 160 L510 220 L480 200 L460 150 Z" fill="#8aa8d6" opacity="0.9"/>
+  <!-- Papua -->
+  <path d="M700 140 L830 130 L840 220 L720 230 Z" fill="#9fb8dd" opacity="0.9"/>
+  <!-- Small islands -->
+  <circle cx="400" cy="300" r="6" fill="#7c9bcf"/>
+  <circle cx="440" cy="305" r="5" fill="#7c9bcf"/>
+  <circle cx="600" cy="250" r="8" fill="#7c9bcf"/>
+  <circle cx="640" cy="255" r="6" fill="#7c9bcf"/>
+</svg>
