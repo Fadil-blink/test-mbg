@@ -1,4 +1,15 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) session_start();
+if (empty($_SESSION['user_id'])) {
+  header('Location: ../auth/login.php');
+  exit;
+}
+$roleName = strtolower($_SESSION['role_name'] ?? '');
+$roleId = (int)($_SESSION['role_id'] ?? 0);
+if (!in_array($roleName, ['supplier', 'admin_supplier']) && !in_array($roleId, [6,7])) {
+  header('Location: ../auth/login.php');
+  exit;
+}
 $page_title = $page_title ?? 'Supplier MBG';
 ?>
 <!DOCTYPE html>
@@ -26,6 +37,9 @@ $page_title = $page_title ?? 'Supplier MBG';
       <i class="fa-regular fa-bell"></i>
       <i class="fa-solid fa-gear"></i>
       <div class="divider-v"></div>
+      <a href="../auth/logout.php" class="icon-btn" title="Logout" style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;">
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </a>
       <img class="avatar" src="https://i.pravatar.cc/80?img=13" alt="avatar">
     </div>
   </div>

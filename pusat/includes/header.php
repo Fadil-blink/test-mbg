@@ -1,4 +1,8 @@
-<?php if (!isset($topbarTitle)) { $topbarTitle = "PAN MBG Dashboard"; } ?>
+<?php
+if (session_status() === PHP_SESSION_NONE) session_start();
+if (empty($_SESSION['user_id'])) { header('Location: ../auth/login.php'); exit; }
+if (!isset($topbarTitle)) { $topbarTitle = "PAN MBG Dashboard"; }
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -25,6 +29,9 @@
         <div class="icon-btn"><i data-lucide="bell"></i><span class="icon-dot"></span></div>
         <div class="icon-btn"><i data-lucide="calendar"></i></div>
         <div class="topbar-divider"></div>
+        <a href="../auth/logout.php" class="icon-btn" title="Logout" style="text-decoration:none;color:inherit;">
+          <i data-lucide="log-out"></i>
+        </a>
         <div class="profile-tag">
           <span>Profil Pengguna</span>
           <span class="avatar-sm">A</span>
