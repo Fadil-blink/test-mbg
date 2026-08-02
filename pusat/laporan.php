@@ -11,9 +11,9 @@ require __DIR__ . '/includes/header.php';
     <p>Penyusunan dan pengunduhan laporan audit berkala nasional.</p>
   </div>
   <div class="page-head-actions">
-    <button class="btn btn-outline"><i data-lucide="file-output"></i>Ekspor PDF</button>
-    <button class="btn btn-outline"><i data-lucide="file-spreadsheet"></i>Ekspor Excel</button>
-    <button class="btn btn-primary"><i data-lucide="download"></i>Unduh CSV</button>
+    <a href="action.php?action=laporan-pdf" class="btn btn-outline"><i data-lucide="file-output"></i>Ekspor PDF</a>
+    <a href="action.php?action=laporan-excel" class="btn btn-outline"><i data-lucide="file-spreadsheet"></i>Ekspor Excel</a>
+    <a href="action.php?action=download-laporan" class="btn btn-primary"><i data-lucide="download"></i>Unduh CSV</a>
   </div>
 </div>
 
@@ -48,7 +48,7 @@ require __DIR__ . '/includes/header.php';
           <td>24 Jul 2026</td>
           <td>Sistem AI</td>
           <td><?php echo badge('Selesai','info'); ?></td>
-          <td><span class="link-btn">Lihat</span></td>
+          <td><a href="action.php?action=laporan-detail&id=REP-2026-07-01" class="link-btn">Lihat</a></td>
         </tr>
         <tr>
           <td class="cell-strong">#REP-2026-07-02</td>
@@ -57,7 +57,7 @@ require __DIR__ . '/includes/header.php';
           <td>23 Jul 2026</td>
           <td>Auditor Utama</td>
           <td><?php echo badge('Draft','neutral'); ?></td>
-          <td><span class="link-btn">Edit</span></td>
+          <td><a href="action.php?action=laporan-edit&id=REP-2026-07-02" class="link-btn">Edit</a></td>
         </tr>
       </tbody>
     </table>

@@ -2,6 +2,8 @@
 $current = basename($_SERVER['PHP_SELF']);
 
 // Struktur menu sidebar: key => [label, icon (lucide), file]
+require_once __DIR__ . '/../includes/db.php';
+
 $menu = [
     ['label' => 'Dashboard',            'icon' => 'layout-dashboard', 'file' => 'dashboard.php'],
     ['label' => 'Monitoring Nasional',  'icon' => 'bar-chart-3',      'file' => 'monitoring-nasional.php'],
@@ -18,10 +20,43 @@ $menu = [
 ];
 
 /**
+ * Escape string untuk output HTML.
+ */
+function escape($value) {
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+}
+
+function bind_stmt_params(mysqli_stmt $stmt, string $types, array $params): void {
+    if ($types === '' || count($params) === 0) {
+        return;
+    }
+    $bindNames = [];
+    $bindNames[] = $types;
+    foreach ($params as $key => $value) {
+        $bindNames[] = &$params[$key];
+    }
+    call_user_func_array([$stmt, 'bind_param'], $bindNames);
+}
+
+/**
  * Format angka ke Rupiah singkat, mis. 45200000000000 -> "Rp 45.2T"
  */
 function fmt_rp_short($value) {
-    return $value;
+    $value = (float)$value;
+    if ($value >= 1000000000000) {
+        return 'Rp ' . number_format($value / 1000000000000, 1, ',', '.') . 'T';
+    }
+    if ($value >= 1000000000) {
+        return 'Rp ' . number_format($value / 1000000000, 1, ',', '.') . 'M';
+    }
+    if ($value >= 1000000) {
+        return 'Rp ' . number_format($value / 1000000, 1, ',', '.') . 'Jt';
+    }
+    return 'Rp ' . number_format($value, 0, ',', '.');
+}
+
+function formatRp($value) {
+    return 'Rp ' . number_format((float)$value, 0, ',', '.');
 }
 
 /**

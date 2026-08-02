@@ -11,7 +11,7 @@ require __DIR__ . '/includes/header.php';
     <h1>Kelola Basis Data Supplier</h1>
   </div>
   <div class="page-head-actions">
-    <button class="btn btn-primary"><i data-lucide="user-plus"></i>Tambah Supplier Baru</button>
+    <a href="action.php?action=tambah-supplier" class="btn btn-primary"><i data-lucide="user-plus"></i>Tambah Supplier Baru</a>
   </div>
 </div>
 
@@ -46,7 +46,7 @@ require __DIR__ . '/includes/header.php';
     <span class="filter-label">Filter:</span>
     <div class="dropdown">Semua Jenis Supplier<i data-lucide="chevron-down"></i></div>
     <div class="dropdown">Semua Provinsi<i data-lucide="chevron-down"></i></div>
-    <span class="link-btn" style="margin-left:auto;">Reset</span>
+    <a href="action.php?action=reset-supplier" class="link-btn" style="margin-left:auto;">Reset</a>
   </div>
 </div>
 

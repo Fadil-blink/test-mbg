@@ -12,7 +12,7 @@ require __DIR__ . '/includes/header.php';
   </div>
   <div class="page-head-actions">
     <button class="btn btn-outline"><i data-lucide="sliders-horizontal"></i>Filter Data</button>
-    <button class="btn btn-primary"><i data-lucide="download"></i>Ekspor Rekapitulasi</button>
+    <a href="action.php?action=download-laporan" class="btn btn-primary"><i data-lucide="download"></i>Ekspor Rekapitulasi</a>
   </div>
 </div>
 

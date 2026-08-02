@@ -13,7 +13,6 @@ if (!empty($_SESSION['user_id'])) {
 
 $error = '';
 
-// Verify required `users` table exists to avoid fatal mysqli exceptions.
 $usersTableExists = true;
 $tblCheck = $mysqli->query("SHOW TABLES LIKE 'users'");
 if (!$tblCheck || $tblCheck->num_rows === 0) {
@@ -32,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$usersTableExists) {
       // keep $error as previously set (missing users table)
     } else {
-      $stmt = $mysqli->prepare('SELECT u.id, u.email, u.password_hash, u.full_name, u.role_id, r.name AS role_name, u.is_active FROM users u LEFT JOIN roles r ON u.role_id = r.id WHERE u.email = ? LIMIT 1');
+      $stmt = $mysqli->prepare('SELECT u.id, u.email, u.password_hash, u.full_name, u.role_id, u.organization_id, r.name AS role_name, u.is_active FROM users u LEFT JOIN roles r ON u.role_id = r.id WHERE u.email = ? LIMIT 1');
       if ($stmt) {
         $stmt->bind_param('s', $email);
         $stmt->execute();
@@ -57,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['full_name'] = $row['full_name'];
             $_SESSION['role_id'] = (int)$row['role_id'];
             $_SESSION['role_name'] = $row['role_name'] ?? '';
+            $_SESSION['organization_id'] = is_numeric($row['organization_id']) ? (int)$row['organization_id'] : null;
 
             $ip = $_SERVER['REMOTE_ADDR'] ?? '';
             $upd = $mysqli->prepare('UPDATE users SET last_login = NOW(), last_ip = ? WHERE id = ?');

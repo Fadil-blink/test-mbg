@@ -10,6 +10,56 @@ if (!in_array($roleName, ['supplier', 'admin_supplier']) && !in_array($roleId, [
   header('Location: ../auth/login.php');
   exit;
 }
+require_once __DIR__ . '/../../includes/db.php';
+
+function supplier_lookup_by_session(mysqli $mysqli) {
+  $supplierId = $_SESSION['supplier_id'] ?? null;
+  if (!$supplierId && !empty($_SESSION['organization_id']) && is_numeric($_SESSION['organization_id'])) {
+    $supplierId = (int)$_SESSION['organization_id'];
+  }
+
+  if (!$supplierId) {
+    $stmt = $mysqli->prepare('SELECT id FROM suppliers WHERE email = ? OR name = ? LIMIT 1');
+    if ($stmt) {
+      $email = $_SESSION['email'] ?? '';
+      $name = $_SESSION['full_name'] ?? '';
+      $stmt->bind_param('ss', $email, $name);
+      $stmt->execute();
+      $stmt->bind_result($foundId);
+      if ($stmt->fetch()) {
+        $supplierId = (int)$foundId;
+      }
+      $stmt->close();
+    }
+  }
+
+  if (!$supplierId) {
+    $result = $mysqli->query('SELECT id FROM suppliers WHERE status = "aktif" ORDER BY rating DESC LIMIT 1');
+    if ($result && ($row = $result->fetch_assoc())) {
+      $supplierId = (int)$row['id'];
+    }
+  }
+
+  if (!$supplierId) {
+    return null;
+  }
+
+  $_SESSION['supplier_id'] = $supplierId;
+
+  $stmt = $mysqli->prepare('SELECT id, code, name, type, city, province, email, phone, rating, total_sales, total_transactions, status FROM suppliers WHERE id = ? LIMIT 1');
+  if ($stmt) {
+    $stmt->bind_param('i', $supplierId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $supplier = $result->fetch_assoc();
+    $stmt->close();
+    return $supplier ?: null;
+  }
+  return null;
+}
+
+$supplier = supplier_lookup_by_session($mysqli);
+$supplierId = $supplier['id'] ?? null;
 $page_title = $page_title ?? 'Supplier MBG';
 ?>
 <!DOCTYPE html>

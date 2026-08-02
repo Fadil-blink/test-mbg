@@ -58,7 +58,7 @@ require __DIR__ . '/includes/header.php';
         <div class="card-title">Top 10 Komoditas</div>
         <div class="card-sub">Berdasarkan Volume Pengadaan Terbesar</div>
       </div>
-      <button class="btn btn-outline btn-sm">Lihat Detail</button>
+      <a href="deteksi-kecurangan.php" class="btn btn-outline btn-sm">Lihat Detail</a>
     </div>
     <div class="bar-list-item">
       <div class="bar-list-top"><b>Beras Premium</b><span>1.500 Ton</span></div>
@@ -88,7 +88,7 @@ require __DIR__ . '/includes/header.php';
     <div class="card-title">Daftar Detail Komoditas</div>
     <div style="display:flex;gap:10px;">
       <button class="btn btn-outline btn-sm"><i data-lucide="sliders-horizontal"></i>Filter</button>
-      <button class="btn btn-outline btn-sm"><i data-lucide="download"></i>Export</button>
+      <a href="action.php?action=download-laporan" class="btn btn-outline btn-sm"><i data-lucide="download"></i>Export</a>
     </div>
   </div>
   <div class="table-wrap">
@@ -101,7 +101,7 @@ require __DIR__ . '/includes/header.php';
           <td class="cell-money">Rp 1.2 T</td>
           <td>45</td>
           <td><?php echo badge('Pasokan Aman','success'); ?></td>
-          <td><span class="link-btn">Detail</span></td>
+          <td><a href="action.php?action=kecurangan-detail&id=BER-2026-07-01" class="link-btn">Detail</a></td>
         </tr>
       </tbody>
     </table>

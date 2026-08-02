@@ -1,14 +1,15 @@
 <?php
+require_once __DIR__ . '/../../includes/db.php';
 if (session_status() === PHP_SESSION_NONE) session_start();
 if (empty($_SESSION['user_id'])) { header('Location: ../auth/login.php'); exit; }
-if (!isset($pageTitle)) $pageTitle = 'Dashboard';
+$fullName = $_SESSION['full_name'] ?? 'Pengguna SPPG';
 ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><?php echo htmlspecialchars($pageTitle); ?> - Dashboard SPPG Surabaya Barat</title>
+<title><?php echo htmlspecialchars($pageTitle); ?> - Dashboard SPPG</title>
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -32,8 +33,8 @@ if (!isset($pageTitle)) $pageTitle = 'Dashboard';
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/><path d="M9 5H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h4"/></svg>
         </a>
         <div class="topbar-user">
-          <img src="https://i.pravatar.cc/80?img=13" alt="Admin SPPG">
-          <span>Admin SPPG</span>
+          <img src="https://i.pravatar.cc/80?img=13" alt="<?php echo htmlspecialchars($fullName); ?>">
+          <span><?php echo htmlspecialchars($fullName); ?></span>
         </div>
       </div>
     </header>

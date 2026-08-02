@@ -9,7 +9,7 @@ require __DIR__ . '/includes/header.php';
 <div class="page-head">
   <div><h1>Dashboard Anggaran Nasional</h1></div>
   <div class="page-head-actions">
-    <button class="btn btn-primary"><i data-lucide="file-plus-2"></i>Buat Alokasi Baru</button>
+    <a href="action.php?action=buat-alokasi" class="btn btn-primary"><i data-lucide="file-plus-2"></i>Buat Alokasi Baru</a>
   </div>
 </div>
 
@@ -43,10 +43,10 @@ require __DIR__ . '/includes/header.php';
   <div class="dropdown">Semua Provinsi<i data-lucide="chevron-down"></i></div>
   <div class="dropdown">Semua Kabupaten<i data-lucide="chevron-down"></i></div>
   <div class="dropdown">Semua Status<i data-lucide="chevron-down"></i></div>
-  <span class="link-btn" style="margin-left:auto;">Reset</span>
+  <a href="action.php?action=reset-anggaran" class="link-btn" style="margin-left:auto;">Reset</a>
 </div>
 
-<div class="card" style="padding:0;margin-top:20px;">
+<div class="card" style="padding:0;">
   <div class="table-wrap">
     <table class="data-table">
       <thead>

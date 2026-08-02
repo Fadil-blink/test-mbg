@@ -11,7 +11,7 @@ require __DIR__ . '/includes/header.php';
     <p>Log aktivitas sistem dan riwayat perubahan data untuk transparansi audit.</p>
   </div>
   <div class="page-head-actions">
-    <button class="btn btn-outline"><i data-lucide="file-output"></i>Ekspor PDF</button>
+    <a href="action.php?action=laporan-pdf" class="btn btn-outline"><i data-lucide="file-output"></i>Ekspor PDF</a>
     <button class="btn btn-primary"><i data-lucide="sliders-horizontal"></i>Filter Data</button>
   </div>
 </div>

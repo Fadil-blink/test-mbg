@@ -9,8 +9,8 @@ require __DIR__ . '/includes/header.php';
 <div class="page-head">
   <div><h1>Manajemen Pengguna</h1></div>
   <div class="page-head-actions">
-    <button class="btn btn-outline"><i data-lucide="download"></i>Ekspor Data</button>
-    <button class="btn btn-primary"><i data-lucide="user-plus"></i>Tambah Pengguna</button>
+    <a href="action.php?action=ekspor-pengguna" class="btn btn-outline"><i data-lucide="download"></i>Ekspor Data</a>
+    <a href="action.php?action=tambah-pengguna" class="btn btn-primary"><i data-lucide="user-plus"></i>Tambah Pengguna</a>
   </div>
 </div>
 
@@ -55,7 +55,7 @@ require __DIR__ . '/includes/header.php';
           <td>Pusat Audit Nasional</td>
           <td><?php echo badge('Aktif','info'); ?></td>
           <td>24 Jul 2026, 10:15</td>
-          <td><span class="link-btn">Detail</span></td>
+          <td><a href="action.php?action=detail-pengguna&id=budi.s@audit.go.id" class="link-btn">Detail</a></td>
         </tr>
         <tr>
           <td class="cell-strong">Siti Aminah</td>
@@ -64,7 +64,7 @@ require __DIR__ . '/includes/header.php';
           <td>Kantor Wilayah I</td>
           <td><?php echo badge('Aktif','info'); ?></td>
           <td>23 Jul 2026, 16:45</td>
-          <td><span class="link-btn">Detail</span></td>
+          <td><a href="action.php?action=detail-pengguna&id=siti.a@wilayah.go.id" class="link-btn">Detail</a></td>
         </tr>
         <tr>
           <td class="cell-strong">Andi Wijaya</td>
@@ -73,7 +73,7 @@ require __DIR__ . '/includes/header.php';
           <td>PT SPPG Jaya Makmur</td>
           <td><?php echo badge('Aktif','info'); ?></td>
           <td>24 Jul 2026, 08:30</td>
-          <td><span class="link-btn">Detail</span></td>
+          <td><a href="action.php?action=detail-pengguna&id=andi.w@sppg-jaya.com" class="link-btn">Detail</a></td>
         </tr>
       </tbody>
     </table>

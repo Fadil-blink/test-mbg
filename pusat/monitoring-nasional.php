@@ -9,7 +9,7 @@ require __DIR__ . '/includes/header.php';
 <div class="page-head">
   <div><h1>Monitoring Nasional</h1></div>
   <div class="page-head-actions">
-    <button class="btn btn-primary"><i data-lucide="download"></i>Download Laporan</button>
+    <a href="action.php?action=download-laporan" class="btn btn-primary"><i data-lucide="download"></i>Download Laporan</a>
   </div>
 </div>
 
@@ -81,7 +81,7 @@ require __DIR__ . '/includes/header.php';
       <b>Supplier Terduga Fiktif</b>
       <p>Ditemukan 3 supplier dengan alamat yang sama di Medan.</p>
     </div>
-    <button class="btn btn-outline" style="width:100%;justify-content:center;">Lihat Semua Peringatan</button>
+    <a href="deteksi-kecurangan.php" class="btn btn-outline" style="width:100%;justify-content:center;">Lihat Semua Peringatan</a>
   </div>
 </div>
 

@@ -9,7 +9,7 @@ require __DIR__ . '/includes/header.php';
 <div class="page-head">
   <div><h1>Monitoring Transaksi Pengadaan</h1></div>
   <div class="page-head-actions">
-    <button class="btn btn-primary"><i data-lucide="shopping-cart"></i>Buat Transaksi Baru</button>
+    <a href="action.php?action=buat-transaksi" class="btn btn-primary"><i data-lucide="shopping-cart"></i>Buat Transaksi Baru</a>
   </div>
 </div>
 
@@ -42,10 +42,10 @@ require __DIR__ . '/includes/header.php';
   <div class="dropdown">Semua SPPG<i data-lucide="chevron-down"></i></div>
   <div class="dropdown">Semua Supplier<i data-lucide="chevron-down"></i></div>
   <div class="dropdown">Semua Status<i data-lucide="chevron-down"></i></div>
-  <span class="link-btn" style="margin-left:auto;">Reset</span>
+  <a href="action.php?action=reset-transaksi" class="link-btn" style="margin-left:auto;">Reset</a>
 </div>
 
-<div class="card" style="padding:0;margin-top:20px;">
+<div class="card" style="padding:0;">
   <div class="table-wrap">
     <table class="data-table">
       <thead>
@@ -60,7 +60,7 @@ require __DIR__ . '/includes/header.php';
           <td>Beras Premium</td>
           <td>5.000 Kg</td>
           <td class="cell-money">Rp 75.000.000</td>
-          <td><span class="badge badge-success" style="width:9px;height:9px;padding:0;border-radius:50%;"></span></td>
+          <td><?php echo badge('Selesai','success'); ?></td>
         </tr>
         <tr>
           <td class="cell-strong">#TRX-99280</td>
@@ -70,7 +70,7 @@ require __DIR__ . '/includes/header.php';
           <td>Telur Ayam</td>
           <td>2.500 Kg</td>
           <td class="cell-money">Rp 62.500.000</td>
-          <td><span class="badge badge-info" style="width:9px;height:9px;padding:0;border-radius:50%;"></span></td>
+          <td><?php echo badge('Proses','info'); ?></td>
         </tr>
       </tbody>
     </table>

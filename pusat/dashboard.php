@@ -149,7 +149,7 @@ require __DIR__ . '/includes/header.php';
 <div class="card mb-24" style="padding:0;">
   <div class="card-head-row" style="padding:22px 22px 0;">
     <div class="card-title">Transaksi Terbaru</div>
-    <span class="link-btn">Lihat Semua &rsaquo;</span>
+    <a href="transaksi-pembelian.php" class="link-btn">Lihat Semua &rsaquo;</a>
   </div>
   <div class="table-wrap">
     <table class="data-table">
@@ -195,7 +195,7 @@ require __DIR__ . '/includes/header.php';
         <div class="verify-name">CV. Berkah Tani</div>
         <div class="verify-loc">Cianjur, Jawa Barat</div>
       </div>
-      <button class="btn btn-primary btn-sm">Verifikasi</button>
+      <a href="data-supplier.php" class="btn btn-primary btn-sm">Verifikasi</a>
     </div>
     <div class="verify-row">
       <div class="verify-icon"><i data-lucide="landmark"></i></div>
@@ -203,7 +203,7 @@ require __DIR__ . '/includes/header.php';
         <div class="verify-name">UD. Jaya Lautan</div>
         <div class="verify-loc">Makassar, Sulsel</div>
       </div>
-      <button class="btn btn-primary btn-sm">Verifikasi</button>
+      <a href="data-supplier.php" class="btn btn-primary btn-sm">Verifikasi</a>
     </div>
   </div>
   <div class="card">
